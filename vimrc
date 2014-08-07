@@ -25,6 +25,12 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+set showcmd
+set showmode
+
+set hlsearch
+set incsearch
+
 set guifont=Monaco
 set background=dark
 colorscheme distinguished
