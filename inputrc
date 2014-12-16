@@ -1,2 +1,6 @@
+# Use VIM on command line.
 set editing-mode vi
 set keymap vi-command
+
+# Silence please.
+set bell-style visible
