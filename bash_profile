@@ -9,3 +9,7 @@ fi
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+# Better CLI colors
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
