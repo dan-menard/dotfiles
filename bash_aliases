@@ -9,6 +9,8 @@ alias gri='git rebase -i'
 alias gb='git branch'
 alias gl='git log'
 
+alias ffs='git stash && !!'
+
 # Rails stuff
 alias be='bundle exec'
 alias bi='bundle install'
