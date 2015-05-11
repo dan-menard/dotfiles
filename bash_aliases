@@ -13,7 +13,8 @@ alias ffs='git stash && !!'
 
 # Rails stuff
 alias be='bundle exec'
-alias bi='bundle install'
+alias bi='bundle install --jobs 10'
 alias ss='TDD=0 script/server'
-alias biss='bundle install && script/server'
+alias biss='bundle install --jobs 10 && TDD=0 script/server'
+alias dbfix='rake db:migrate && rake db:test:prepare'
 
