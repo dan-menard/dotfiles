@@ -27,9 +27,6 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
-" Easier mode-switch mapping.
-map ;; <Esc>
-
 " Add status info about command and visual modes.
 set showcmd
 set showmode
@@ -46,6 +43,9 @@ set visualbell
 " Tab-autocomplete options.
 set wildchar=<TAB> wildmenu wildmode=list:longest,full
 set list listchars=trail:.
+
+" Easier mode-switch mapping.
+map! ;; <Esc>
 
 " Fix Y
 map Y y$
