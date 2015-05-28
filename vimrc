@@ -44,9 +44,6 @@ set visualbell
 set wildchar=<TAB> wildmenu wildmode=list:longest,full
 set list listchars=trail:.
 
-" Easier mode-switch mapping.
-map! ;; <Esc>
-
 " Fix Y
 map Y y$
 
@@ -71,16 +68,22 @@ noremap <C-j> <C-e>
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
+" Easier mode-switch mapping.
+map! <Leader><Leader> <Esc>
+
 " Open and close and split buffers more easily.
-nmap <C-n> :bn<CR>
-nmap <C-b> :bp<CR>
-nmap <C-i> :vsp<Space>
-nmap <C-o> :edit<Space>
-nmap <C-p> :edit :%:h<Space>
-nmap <C-l> :buffers<CR>
-nmap <C-c> :bp\|bd #<CR>
-nmap <C-s> <C-w>w<C-w>r
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>n :bn<CR>
+nmap <Leader>b :bp<CR>
+nmap <Leader>i :vsp<Space>
+nmap <Leader>o :edit<Space>
+nmap <Leader>l :buffers<CR>
+nmap <Leader>c :bp\|bd #<CR>
+nmap <Leader>s <C-w>w<C-w>r
+nmap <Leader>[ <C-w>w
+nmap <Leader>] <C-w>w
 
 " Find stuff. Not crazy about this.
-nmap <C-f> :find<Space>
+nmap \f :find<Space>
 set path=$PWD/app/**,$PWD/config/**,$PWD/test,$PWD/db,$PWD
