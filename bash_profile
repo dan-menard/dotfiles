@@ -3,7 +3,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+  . ~/.aliases
 fi
 
 if [ -f ~/.git-completion.bash ]; then
