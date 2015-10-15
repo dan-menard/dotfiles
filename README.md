@@ -1,4 +1,4 @@
-# Setup instructions (for a new machine or VM)
+# Setup instructions (for a new machine/VM)
 
 ## Shell setup
 
