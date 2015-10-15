@@ -9,7 +9,8 @@ alias gri='git rebase -i'
 alias gb='git branch'
 alias gl='git log'
 
-alias ffs='git stash && !!'
+# used to work, seems to be broken; not sure how to fix.
+# alias ffs='git stash && !!'
 
 # Rails stuff
 alias be='bundle exec'
@@ -18,3 +19,5 @@ alias ss='TDD=0 script/server'
 alias biss='bundle install --jobs 10 && TDD=0 script/server'
 alias dbfix='rake db:migrate && rake db:test:prepare'
 
+# Vagrant stuff
+alias va='vagrant'
