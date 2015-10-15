@@ -1,5 +1,7 @@
 # Setup instructions for a new machine/VM
 
+(Not included: package managers and ruby version managers.)
+
 ## Shell setup
 
 **use zsh:**
@@ -20,6 +22,18 @@
 cd dotfiles
 cp .* ~/
 ```
+
+### OSX-specific ###
+
+**install fasd with brew**
+
+`brew install fasd`
+
+### Linux-specific ###
+
+**install fasd manually**
+
+https://github.com/clvv/fasd#introduction
 
 ## VIM-specific setup
 
