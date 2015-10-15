@@ -33,7 +33,7 @@ cp .* ~/
 
 **install fasd manually**
 
-https://github.com/clvv/fasd#introduction
+https://github.com/clvv/fasd#install
 
 ## VIM-specific setup
 
