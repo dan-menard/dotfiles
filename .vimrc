@@ -4,9 +4,10 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'kchmck/vim-coffee-script'
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+call vundle#end()
 
 syntax enable
 filetype plugin indent on
