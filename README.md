@@ -35,7 +35,7 @@ cp .* ~/
 
 https://github.com/clvv/fasd#install
 
-## VIM-specific setup
+## VIM setup
 
 **install plugins:**
 
