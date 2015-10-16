@@ -60,6 +60,11 @@ plugins=(vi-mode fasd git)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+if [ -e  ~/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
