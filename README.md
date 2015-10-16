@@ -37,9 +37,11 @@ https://github.com/clvv/fasd#install
 
 ## VIM-specific setup
 
-**install bundle:**
+**install plugins:**
 
-`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+open vim
+
+`:PluginInstall`
 
 **install awesome non-default theme:**
 
