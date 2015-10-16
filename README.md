@@ -39,9 +39,7 @@ https://github.com/clvv/fasd#install
 
 **install plugins:**
 
-open vim
-
-`:PluginInstall`
+open vim and run `:PluginInstall`
 
 **install awesome non-default theme:**
 
