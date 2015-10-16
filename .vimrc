@@ -1,6 +1,7 @@
 " General config.
-set encoding=utf-8
 set nocompatible
+set encoding=utf-8
+set path=$PWD/**
 syntax enable
 
 " Vundle and plugin config.
@@ -8,8 +9,10 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
@@ -85,7 +88,4 @@ nmap <Leader>c :bp\|bd #<CR>
 nmap <Leader>s <C-w>w<C-w>r
 nmap <Leader>[ <C-w>w
 nmap <Leader>] <C-w>w
-
-" Find stuff. Not crazy about this.
-nmap \f :find<Space>
-set path=$PWD/app/**,$PWD/config/**,$PWD/test,$PWD/db,$PWD
+nmap <Leader>f :find<Space>
