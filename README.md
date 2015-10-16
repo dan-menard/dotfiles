@@ -41,6 +41,13 @@ https://github.com/clvv/fasd#install
 
 open vim and run `:PluginInstall`
 
+**install c-family language support for YCM:**
+
+```
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer
+```
+
 **install awesome non-default theme:**
 
 ```
