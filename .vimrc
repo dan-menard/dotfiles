@@ -1,15 +1,18 @@
+" General config.
 set encoding=utf-8
-
 set nocompatible
-filetype off
+syntax enable
 
+" Vundle and plugin config.
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
-
-syntax enable
 filetype plugin indent on
 
 " Swap files annoy me.
@@ -54,7 +57,6 @@ set incsearch
 nmap // :noh<CR>
 
 " Make it pretty.
-set guifont=Monaco
 set background=dark
 colorscheme distinguished
 
@@ -66,7 +68,6 @@ noremap <C-k> <C-y>
 noremap <C-j> <C-e>
 
 " Make newlines more easily.
-nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 " Easier mode-switch mapping.
