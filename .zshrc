@@ -23,10 +23,6 @@ if [ -e ~/.fasd ]; then
   eval "$(fasd --init auto)"
 fi
 
-# Super-cool up-arrow behavior.
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
-
 # External files
 . ~/.aliases
 
