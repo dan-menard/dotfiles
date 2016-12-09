@@ -47,10 +47,3 @@ open vim and run `:PluginInstall`
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 ```
-
-**install awesome non-default theme:**
-
-```
-git clone git@github.com:Lokaltog/vim-distinguished.git`
-cp -R vim-distinguised/colors ~/.vim/
-```
