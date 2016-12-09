@@ -3,18 +3,24 @@ alias gs='git stash'
 alias gsp='git stash pop'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias gcm='git commit -m'
-alias gpo='git push origin'
-alias gri='git rebase -i'
 alias gb='git branch'
 alias gl='git log'
 
-alias ffs='git stash && !!'
+# open unmerged/added files
+alias gde='vim `git diff --name-only | cat`'
+
+# during rebase, open all files with merge conflicts
+alias gre='vim `git diff --name-only --diff-filter=U | cat`'
+
+# during rebase, add all and continue
+alias grc='git add . && git rebase --continue'
+
+# used to work, seems to be broken; not sure how to fix.
+# alias ffs='git stash && !!'
 
 # Rails stuff
 alias be='bundle exec'
 alias bi='bundle install --jobs 10'
 alias ss='TDD=0 script/server'
 alias biss='bundle install --jobs 10 && TDD=0 script/server'
-alias dbfix='rake db:migrate && rake db:test:prepare'
-alias t='bundle exec ruby -I test '
+alias dbfix='be rake db:migrate && be rake db:test:prepare'
