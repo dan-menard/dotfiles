@@ -1,31 +1,19 @@
-# oh-my-zsh
-export ZSH=~/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-ZSH_THEME="avit"
-
-# Plugins
-#
-# vi-mode: vim bindings on command line
-# fasd: wicked-cool command line productivity tool
-# git: git status in prompt
-plugins=(vi-mode fasd git)
-
-# Exports and specific library initialization
+# <3 vim
 export EDITOR='vim'
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$HOME/bin"
 
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+# Fancy dev tools
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
-# External files
-. ~/.aliases
+# Make it pretty
+autoload -U promptinit && promptinit
+prompt adam1
 
-# Settings I might still want
-#
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+export export CLICOLOR=YES
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
-# Super-cool up-arrow behavior.
+alias grep='grep --color'
+
+# Up-arrow history search
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -35,8 +23,14 @@ bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[OB' down-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-PATH="$HOME/.themekit:$PATH"
-PATH="$HOME/.themekit:$PATH"
+# Persist history between sessions
+HISTSIZE=1000
+HISTFILE=~/.history
+SAVEHIST=1000
 
-export PATH="$HOME/.yarn/bin:$PATH"
+# Git autocompletion
+autoload -U compinit && compinit
+zmodload -i zsh/complist
+
+# External files
+. ~/.aliases
