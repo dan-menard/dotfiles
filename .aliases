@@ -4,20 +4,32 @@ alias gsp='git stash pop'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gl='git log'
-alias gc='git checkout '
+alias gc='git checkout'
 alias gb='git branch'
 alias gcb='git checkout `git branch | fzf`'
+alias bb='git rev-parse --abbrev-ref HEAD'
+alias gp='git push origin `bb`'
+alias gfp='git push -f origin `bb`'
 alias gg='git fetch && git rebase origin/master'
 alias gri='git rebase -i '
+alias grom='git rebase origin/master'
+alias ga='git add'
+alias gr='git reset'
+
+# open untracked files
+alias gae="vim `git status --porcelain | awk '{print $2}'`"
 
 # open unmerged/added files
 alias gde='vim `git diff --name-only | cat`'
 
-# open untracked files
-alias gea="vim `git status --porcelain | awk '{print $2}'`"
+# open added files files
+alias gdce='vim `git diff --cached --name-only | cat`'
 
 # open added files, but not modified files
-alias gen="vim `git status --porcelain | sed -e '/\ M/ d' -e 's/A\ \ //'`"
+alias gne="vim `git status --porcelain | sed -e '/\ M/ d' -e 's/A\ \ //'`"
+
+# open all files changed in the most recent commit
+alias gle='vim `git diff @^ --name-only | cat`'
 
 # during rebase, open all files with merge conflicts
 alias gre='vim `git diff --name-only --diff-filter=U | cat`'
@@ -28,26 +40,17 @@ alias grc='git add . && git rebase --continue'
 # used to work, seems to be broken; not sure how to fix.
 alias ffs='git stash && `!!`'
 
-# git add a grep match on git status
-function ga {
-  git add `git status --porcelain | sed 's/ . //' | grep "$1"`
-  git status
+# print whatever files in git status match an expression using grep
+function fg {
+  git status --porcelain | sed -e 's/.. //g' | grep $1
 }
 
-# git reset a grep match on git status
-function gr { 
-  git reset `git status --porcelain | sed 's/.  //' | grep "$1"`
-  git status
-}
-
-# find files by name
+# print the Nth file in git status
 function ff {
-  find . \( ! -regex '.*/\..*' \) -name "$1"
-}
-
-# find files by name and open them
-function fe {
-  vim `ff $1`
+  # This should work? almost does?
+  # INDEXES=echo "$@" | sed -e "s/ / || /g"
+  # git status --porcelain | sed -e 's/.. //g' | awk -v indexes="$INDEXES" "FNR==indexes {print $0}"
+  git status --porcelain | sed -e 's/.. //g' | awk 'FNR=='$1'{print $0}'
 }
 
 # quick open with fzf
