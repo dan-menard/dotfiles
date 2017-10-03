@@ -15,6 +15,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'JulesWang/css.vim'
+Plugin 'jparise/vim-graphql'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
@@ -121,8 +122,13 @@ au InsertLeave * set cursorline
 " Show a bell instead of making a noise when I make a mistake.
 set visualbell
 
+" Open file in Chrome.
+nmap <silent> <leader>^ :! /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome %:p<CR>
+
 " Tab-autocomplete options.
 set wildchar=<TAB> wildmenu wildmode=list:longest,full
+
+" Highlight trailing whitespace with dots
 set list listchars=trail:.
 
 " Fix Y
@@ -153,7 +159,7 @@ map! <Leader><Leader> <Esc>
 " Open and close and switch buffers more easily.
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
-nmap <Leader>c :bp\|bd #<CR>
+nmap <Leader>c :bd<CR>
 nmap <Leader>n :bn<CR>
 nmap <Leader>b :bp<CR>
 nmap ]] <Leader>n

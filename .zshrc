@@ -1,6 +1,9 @@
 # <3 vim
 export EDITOR='vim'
 
+# Override silly defaults
+RM_STAR_SILENT=1
+
 # Fancy dev tools
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
