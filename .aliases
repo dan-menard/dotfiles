@@ -1,5 +1,5 @@
 # Git stuff
-alias gs='git stash'
+alias gs='git stash --include-untracked'
 alias gsp='git stash pop'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -9,7 +9,7 @@ alias gb='git branch'
 alias gcb='git checkout `git branch | fzf`'
 alias bb='git rev-parse --abbrev-ref HEAD'
 alias gp='git push origin `bb`'
-alias gfp='git push -f origin `bb`'
+alias gfp='git push --force-with-lease origin `bb`'
 alias gg='git fetch && git rebase origin/master'
 alias gri='git rebase -i '
 alias grom='git rebase origin/master'
@@ -28,9 +28,6 @@ alias gdce='vim `git diff --cached --name-only | cat`'
 # open added files, but not modified files
 alias gne="vim `git status --porcelain | sed -e '/\ M/ d' -e 's/A\ \ //'`"
 
-# open all files changed in the most recent commit
-alias gle='vim `git diff @^ --name-only | cat`'
-
 # during rebase, open all files with merge conflicts
 alias gre='vim `git diff --name-only --diff-filter=U | cat`'
 
@@ -39,6 +36,16 @@ alias grc='git add . && git rebase --continue'
 
 # used to work, seems to be broken; not sure how to fix.
 alias ffs='git stash && `!!`'
+
+# open all files from recent commits
+function gle {
+  if [ $# -eq 0 ]
+  then
+    vim `git diff @^ --name-only | cat`
+  else
+    vim `git diff $1 --name-only | cat`
+  fi
+}
 
 # print whatever files in git status match an expression using grep
 function fg {

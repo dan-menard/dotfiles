@@ -11,7 +11,7 @@ RM_STAR_SILENT=1
 autoload -U promptinit && promptinit
 prompt adam1
 
-export export CLICOLOR=YES
+export CLICOLOR=YES
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 alias grep='grep --color'
@@ -31,9 +31,16 @@ HISTSIZE=1000
 HISTFILE=~/.history
 SAVEHIST=1000
 
+# Prompt autocompletion
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=blue"
+
 # Git autocompletion
 autoload -U compinit && compinit
 zmodload -i zsh/complist
 
-# External files
+# Aliases
 . ~/.aliases
+
+# Gross, I know, I don't know where else to put it
+path+=('~/dev/shopify/web/node_modules/.bin')
