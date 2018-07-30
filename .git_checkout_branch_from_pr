@@ -1,0 +1,12 @@
+GITHUB_TOKEN=$( cat ~/.github_personal_token )
+
+function gh() {
+  # Clean up url for API query.
+  api_url=$( echo $@ | sed -e 's/pull/pulls/g' | sed -e 's/#.*//g' | sed -e 's/github\.com/api.github\.com\/repos/g' )
+
+  # Parse response for the branch name using jq
+  branch_name=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" $api_url | jq -r '.head .ref' )
+
+  # Check out branch
+  git fetch origin $branch_name && git checkout $branch_name
+}

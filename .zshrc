@@ -42,5 +42,8 @@ zmodload -i zsh/complist
 # Aliases
 . ~/.aliases
 
+# Custom functions that are too big to put in here
+. ~/.git_checkout_branch_from_pr
+
 # Gross, I know, I don't know where else to put it
 path+=('~/dev/shopify/web/node_modules/.bin')
