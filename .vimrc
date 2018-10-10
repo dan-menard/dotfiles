@@ -38,7 +38,7 @@ set termguicolors
 colorscheme base16-dracula
 
 " Repaint mapping
-nmap <leader>r :syntax sync fromstart<CR>
+nmap <leader>r :redraw!<CR>
 
 " Autocomplete setup
 set completeopt+=menuone
@@ -107,9 +107,6 @@ nmap <silent> [v <Plug>(ale_previous_wrap)
 nmap <silent> ]v <Plug>(ale_next_wrap)
 nmap <silent> <C-l> :call IgnoreLinter()<CR>
 nmap <silent> <C-p> :call RunPrettier()<CR>
-
-" Tell vim-figutive to diff side-by-side
-set diffopt=filler,vertical
 
 " Always show git gutter.
 let g:gitgutter_sign_column_always = 1
@@ -206,6 +203,8 @@ vnoremap . :norm.<CR>
 " FZF
 nmap <Leader>o :FZF<CR>
 nmap <Leader>p :Buffers<CR>
+nmap <Leader>f :BLines
+nmap <Leader>g :Lines
 
 " Open and close and switch buffers more easily.
 nmap <Leader>w :w<CR>
@@ -213,5 +212,5 @@ nmap <Leader>q :q<CR>
 nmap <Leader>c :bd<CR>
 nmap <Leader>n :bn<CR>
 nmap <Leader>b :bp<CR>
-nmap ]] <Leader>n
-nmap [[ <Leader>b
+nmap ]] :bn<CR>
+nmap [[ :bp<CR>

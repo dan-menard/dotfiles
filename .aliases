@@ -6,7 +6,7 @@ alias gdc='git diff --cached'
 alias gl='git log'
 alias gc='git checkout'
 alias gb='git branch'
-alias gcb='git checkout `git branch | fzf`'
+alias gcb='git checkout `git branch | fzf --reverse`'
 alias bb='git rev-parse --abbrev-ref HEAD'
 alias gp='git push origin `bb`'
 alias gfp='git push --force-with-lease origin `bb`'
@@ -47,6 +47,9 @@ function gle {
   fi
 }
 
+# open most recent grep search in vim
+alias vv="vim `fc -ln -1 | sed -e 's/r /rl /' | cat`"
+
 # print whatever files in git status match an expression using grep
 function fg {
   git status --porcelain | sed -e 's/.. //g' | grep $1
@@ -62,6 +65,9 @@ function ff {
 
 # quick open with fzf
 alias v='vim $(fzf)'
+
+# terminal notifications, requires terminal-notifier
+alias hi='terminal-notifier -message "Done!"'
 
 # Rails stuff
 alias be='bundle exec'
