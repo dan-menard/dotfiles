@@ -1,37 +1,42 @@
-" General config.
-set nocompatible
-set encoding=utf-8
-set path=$PWD/**
-syntax enable
-set synmaxcol=120
+" Gross, right? https://github.com/chriskempson/base16-vim/issues/197
+function FixupBase16(info)
+  !sed -i '/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g' ~/.vim/bundle/base16-vim/colors/*.vim
+endfunction
 
 " Vundle and plugin config.
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'w0rp/ale'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'lifepillar/vim-mucomplete'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'junegunn/fzf.vim'
-Plugin 'airblade/vim-gitgutter'
+call plug#begin()
+Plug 'w0rp/ale'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'lifepillar/vim-mucomplete'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+" Plug 'chrisbra/vim-diff-enhanced'
 
 " syntax highlighting and colours
-Plugin 'leafgarland/typescript-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'JulesWang/css.vim'
-Plugin 'jparise/vim-graphql'
-Plugin 'chriskempson/base16-vim'
-call vundle#end()
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'kchmck/vim-coffee-script'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'JulesWang/css.vim'
+Plug 'jparise/vim-graphql'
+Plug 'chriskempson/base16-vim', { 'do': function('FixupBase16') }
+call plug#end()
 filetype plugin indent on
+syntax enable
+
+" General config.
+set nocompatible
+set encoding=utf-8
+set path=$PWD/**
+set synmaxcol=120
 
 " Make it pretty.
 set termguicolors
@@ -109,7 +114,7 @@ nmap <silent> <C-l> :call IgnoreLinter()<CR>
 nmap <silent> <C-p> :call RunPrettier()<CR>
 
 " Always show git gutter.
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " Binding to switch git gutter to diff against HEAD^
 nmap <Leader>0 :let g:gitgutter_diff_base = 'HEAD^'<CR>
@@ -153,6 +158,9 @@ set visualbell
 " Open file in Chrome.
 nmap <silent> <leader>^ :! /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome %:p<CR>
 
+" Spell-check git commit messages
+autocmd FileType gitcommit setlocal spell
+
 " Tab-autocomplete options.
 set wildchar=<TAB> wildmenu wildmode=list:longest,full
 
@@ -180,6 +188,9 @@ noremap <C-j> <S-j>
 
 " Make newlines more easily.
 nmap <CR> o<Esc>
+
+" Insert single character from normal mode
+nmap <C-i> i_<Esc>r
 
 " Copy current filename to system clipboard.
 nmap <Leader>% :let<Space>@*=@%<CR>
