@@ -1,5 +1,6 @@
 # <3 neovim
 export EDITOR='nvim'
+bindkey -v
 
 # Override silly defaults
 RM_STAR_SILENT=1
@@ -10,8 +11,7 @@ if [ -e /Users/dan-menard/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/dan
 
 # Make it pretty
 autoload -U promptinit && promptinit
-
-export PS1='%F{magenta}%~%# %f'
+export PS1='%F{magenta}%~ > %f'
 
 export CLICOLOR=YES
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
