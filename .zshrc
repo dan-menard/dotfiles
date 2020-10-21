@@ -1,15 +1,17 @@
-# <3 vim
-export EDITOR='vim'
+# <3 neovim
+export EDITOR='nvim'
 
 # Override silly defaults
 RM_STAR_SILENT=1
 
 # Fancy dev tools
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+if [ -e /Users/dan-menard/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/dan-menard/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # Make it pretty
 autoload -U promptinit && promptinit
-prompt adam1
+
+export PS1='%F{magenta}%~%# %f'
 
 export CLICOLOR=YES
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
@@ -32,7 +34,7 @@ HISTFILE=~/.history
 SAVEHIST=1000
 
 # Prompt autocompletion
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=blue"
 
 # Git autocompletion
@@ -43,7 +45,7 @@ zmodload -i zsh/complist
 . ~/.aliases
 
 # Custom functions that are too big to put in here
-. ~/.git_checkout_branch_from_pr
+#. ~/.git_checkout_branch_from_pr
 
 # Gross, I know, I don't know where else to put it
 path+=('~/dev/shopify/web/node_modules/.bin')

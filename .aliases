@@ -1,4 +1,5 @@
 # Git stuff
+alias kk='git status'
 alias gs='git stash --include-untracked'
 alias gsp='git stash pop'
 alias gd='git diff'
@@ -17,19 +18,19 @@ alias ga='git add'
 alias gr='git reset'
 
 # open untracked files
-alias gae="vim `git status --porcelain | awk '{print $2}'`"
+alias gae="nvim `git status --porcelain | awk '{print $2}'`"
 
 # open unmerged/added files
-alias gde='vim `git diff --name-only | cat`'
+alias gde='nvim `git diff --name-only | cat`'
 
 # open added files files
-alias gdce='vim `git diff --cached --name-only | cat`'
+alias gdce='nvim `git diff --cached --name-only | cat`'
 
 # open added files, but not modified files
-alias gne="vim `git status --porcelain | sed -e '/\ M/ d' -e 's/A\ \ //'`"
+alias gne="nvim `git status --porcelain | sed -e '/\ M/ d' -e 's/A\ \ //'`"
 
 # during rebase, open all files with merge conflicts
-alias gre='vim `git diff --name-only --diff-filter=U | cat`'
+alias gre='nvim `git diff --name-only --diff-filter=U | cat`'
 
 # during rebase, add all and continue
 alias grc='git add . && git rebase --continue'
@@ -41,14 +42,14 @@ alias ffs='git stash && `!!`'
 function gle {
   if [ $# -eq 0 ]
   then
-    vim `git diff @^ --name-only | cat`
+    nvim `git diff @^ --name-only | cat`
   else
-    vim `git diff $1 --name-only | cat`
+    nvim `git diff $1 --name-only | cat`
   fi
 }
 
-# open most recent grep search in vim
-alias vv="vim `fc -ln -1 | sed -e 's/r /rl /' | cat`"
+# open most recent grep search in nvim
+alias vv="nvim `fc -ln -1 | sed -e 's/r /rl /' | cat`"
 
 # print whatever files in git status match an expression using grep
 function fg {
@@ -64,7 +65,10 @@ function ff {
 }
 
 # quick open with fzf
-alias v='vim $(fzf)'
+alias v='nvim $(fzf)'
+
+# quick open
+alias nv='nvim'
 
 # terminal notifications, requires terminal-notifier
 alias hi='terminal-notifier -message "Done!"'
