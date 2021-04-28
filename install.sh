@@ -1,9 +1,9 @@
 # A script for installing my everyday env + dotfiles for working over SSH.
 
 # Link relevant dotfiles to their proper locations
-ln -sf ~/dotfiles/vimrc ~/.aliases
-ln -sf ~/dotfiles/vimrc ~/.vimrc
-ln -sf ~/dotfiles/zshrc ~/.zshrc
+cp ~/dotfiles/vimrc ~/.aliases
+cp ~/.vimrc
+cp ~/dotfiles/zshrc ~/.zshrc
 
 # Install things those dotfiles use.
 if ! command -v fzf &> /dev/null; then
