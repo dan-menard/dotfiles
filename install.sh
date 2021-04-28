@@ -3,6 +3,7 @@
 # Link relevant dotfiles to their proper locations
 cp ~/dotfiles/.aliases ~/.aliases
 cp ~/dotfiles/.vimrc ~/.vimrc
+cp -R ~/nvim ~/.config
 cp ~/dotfiles/.zshrc ~/.zshrc
 
 # Install things those dotfiles use.
