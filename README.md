@@ -8,10 +8,6 @@
 
 `chsh -s $(which zsh)`
 
-**clone zsh-autocomplete:**
-
-`git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
-
 **clone dotfiles somewhere:**
 
 `git clone git@github.com:dan-menard/dotfiles.git`
@@ -23,6 +19,10 @@ cd dotfiles
 cp .* ~/
 ```
 
+**clone zsh-autocomplete:**
+
+`git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
+
 ### Install the necessities ###
 
 **install brew**
@@ -31,10 +31,7 @@ https://brew.sh/
 
 **install things with brew**
 
-`brew install fasd`
-`brew install fzf`
-`brew install neovim`
-`brew install node`
+`brew install fasd fzf neovim node`
 
 ### iTerm colors
 
@@ -45,5 +42,6 @@ https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/
 **install plugins:**
 
 https://github.com/junegunn/vim-plug#installation
+^ Remember to use the nvim install path
 
 then open vim and run `:PluginInstall`
