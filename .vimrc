@@ -7,7 +7,7 @@ endfunction
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
-call plug#begin()
+call plug#begin('~/.config/nvim')
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
@@ -102,7 +102,13 @@ augroup FiletypeGroup
   au BufNewFile,BufRead *.tsx set filetype=javascript.jsx
 augroup END
 
-let g:ale_linters = {'jsx': ['eslint']}
+let g:ale_linters = {
+\  'javascript': ['eslint'],
+\  'typescript': ['eslint'],
+\  'jsx': ['eslint'],
+\  'tsx': ['eslint']
+\}
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 
 " Lint ruby files with rubocop
 let g:ale_ruby_rubocop_executable = 'bin/rubocop'
