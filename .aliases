@@ -21,16 +21,16 @@ alias gr='git reset'
 alias gae="nvim `git status --porcelain | awk '{print $2}'`"
 
 # open unmerged/added files
-alias gde='nvim `git diff --name-only | cat`'
+alias gde='nvim `git diff --name-only --relative | cat`'
 
 # open added files files
-alias gdce='nvim `git diff --cached --name-only | cat`'
+alias gdce='nvim `git diff --cached --name-only --relative | cat`'
 
 # open added files, but not modified files
 alias gne="nvim `git status --porcelain | sed -e '/\ M/ d' -e 's/A\ \ //'`"
 
 # during rebase, open all files with merge conflicts
-alias gre='nvim `git diff --name-only --diff-filter=U | cat`'
+alias gre='nvim `git diff --name-only --relative --diff-filter=U | cat`'
 
 # during rebase, add all and continue
 alias grc='git add . && git rebase --continue'
@@ -42,9 +42,9 @@ alias ffs='git stash && `!!`'
 function gle {
   if [ $# -eq 0 ]
   then
-    nvim `git diff @^ --name-only | cat`
+    nvim `git diff @^ --name-only --relative | cat`
   else
-    nvim `git diff $1 --name-only | cat`
+    nvim `git diff $1 --name-only --relative | cat`
   fi
 }
 
