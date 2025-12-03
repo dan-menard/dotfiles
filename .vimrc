@@ -6,7 +6,6 @@ endfunction
 " Vundle and plugin config.
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/opt/fzf
 call plug#begin('~/.config/nvim')
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
@@ -15,7 +14,8 @@ Plug 'tpope/vim-surround'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf.vim'
+Plug '/opt/homebrew/opt/fzf'
+Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-gitgutter'
 " Plug 'chrisbra/vim-diff-enhanced'
 
