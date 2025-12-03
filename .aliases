@@ -16,6 +16,7 @@ alias gri='git rebase -i '
 alias grom='git rebase origin/master'
 alias ga='git add'
 alias gr='git reset'
+alias gdl='git diff --name-only --relative'
 
 # open untracked files
 alias gae="nvim `git status --porcelain | awk '{print $2}'`"
@@ -73,9 +74,14 @@ alias nv='nvim'
 # terminal notifications, requires terminal-notifier
 alias hi='terminal-notifier -message "Done!"'
 
-# Rails stuff
-alias be='bundle exec'
-alias bi='bundle install --jobs 10'
-alias ss='TDD=0 script/server'
-alias biss='bundle install --jobs 10 && TDD=0 script/server'
-alias dbfix='be rake db:migrate && be rake db:test:prepare'
+# Graphite stuff
+gt() {
+    if [[ $@ == "sycn" ]]; then
+        command gt sync
+    else
+        command gt "$@"
+    fi
+}
+
+# Work stuff
+alias makefetchhappen='dev github auth'
